@@ -691,9 +691,8 @@
 
           <!-- Buttons Container -->
           <form id="loveForm" action="https://formspree.io/f/xwvnejrj" method="POST" style="display: contents;">
-        
-        <input type="hidden" id="userNameInput" name="Sender_Name" value="Unknown">
-        <input type="hidden" name="Response" value="She said YES! 💘">
+            <input type="hidden" id="userNameInput" name="name" value="Unknown">
+<input type="hidden" name="Response" value="She said YES! 💘">
 
         <div class="btn-container" style="position: relative; width: 100%; max-width: 400px; height: 150px; display: flex; justify-content: center; align-items: center;">
             
@@ -778,6 +777,15 @@
   </div>
 
   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+const nameFromUrl = urlParams.get('name'); 
+const greeting = document.getElementById('greeting');
+const userNameInput = document.getElementById('userNameInput');
+
+if (nameFromUrl) {
+    userNameInput.value = nameFromUrl;
+    if(greeting) greeting.innerHTML = `Happy Rose Day, ${nameFromUrl}! 🌹`;
+}
     const defaultConfig = {
       main_title: "Will You Be Mine?",
       subtitle_text: "Happy Rose Day 🌹",
@@ -1062,3 +1070,4 @@
   </script>
 </body>
 </html>
+
